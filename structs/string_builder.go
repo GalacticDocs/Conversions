@@ -1,6 +1,6 @@
 package structs
 
-type builder struct {
+type StrBuilder struct {
 	Append                func(string) string
 	ToString              func() string
 	Format                func(string, ...interface{}) string
@@ -29,5 +29,5 @@ type builder struct {
 }
 
 type StringBuilder struct {
-	New func(string) *builder
+	New func(string) *StrBuilder
 }
