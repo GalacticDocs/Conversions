@@ -4,6 +4,8 @@ import (
 	"time"
 
 	"github.com/GalacticDocs/Conversions/structs"
+	"github.com/GalacticDocs/Conversions/builders"
+	"github.com/GalacticDocs/Conversions/converter"
 	CLRS "github.com/iVitaliya/colors-go"
 )
 
@@ -46,5 +48,8 @@ func format(format_type string, str string) string {
 }
 
 func LogException(exception string, msg string) {
-	time.Now().
+	now := time.Now()
+	built := builders.StringBuilder().New("")
+
+	built
 }
