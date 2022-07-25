@@ -2,12 +2,15 @@ package converter
 
 import (
 	"strconv"
-	"github.com/GalacticDocs/Conversions/functions"
+
+	"github.com/iVitaliya/logger-go"
 )
 
 func StringToInt(str string) int {
 	val, err := strconv.Atoi(str)
 	if err != nil {
-		functions.
+		logger.Error(err.Error())
 	}
+
+	return val
 }

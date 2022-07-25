@@ -1,9 +1,9 @@
 package converter
 
-func ConvertDays(day int) string {
+func ConvertDay(day int) string {
 	var str string
 	
-	if day == 1 || day == 21 || day 31 {
+	if day == 1 || day == 21 || day == 31 {
 		str = IntToString(day) + "st"
 	} else if day == 2 || day == 22 {
 		str = IntToString(day) + "nd"
@@ -14,4 +14,8 @@ func ConvertDays(day int) string {
 	}
 
 	return str
+}
+
+func ConvertDaysCap(month int) {
+		
 }
