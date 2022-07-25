@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"strings"
 
-	"github.com/GalacticDocs/Conversions/converter"
+	conversions "github.com/GalacticDocs/Conversions"
 	"github.com/iVitaliya/logger-go"
 )
 
@@ -54,7 +54,7 @@ func Contains(original interface{}) *IContains {
 		},
 		Complex64: func(value complex64) bool {
 			var (
-				search string = converter.Stringify().Complex64ToString(value)
+				search string = conversions.Stringify().Complex64ToString(value)
 				i, ok         = original.(complex64)
 			)
 
@@ -62,11 +62,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("complex64")
 			}
 
-			return strings.Contains(converter.Stringify().Complex64ToString(i), search)
+			return strings.Contains(conversions.Stringify().Complex64ToString(i), search)
 		},
 		Complex128: func(value complex128) bool {
 			var (
-				search string = converter.Stringify().Complex128ToString(value)
+				search string = conversions.Stringify().Complex128ToString(value)
 				i, ok         = original.(complex128)
 			)
 
@@ -74,11 +74,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("complex128")
 			}
 
-			return strings.Contains(converter.Stringify().Complex128ToString(i), search)
+			return strings.Contains(conversions.Stringify().Complex128ToString(i), search)
 		},
 		Float32: func(value float32) bool {
 			var (
-				search string = converter.Stringify().Float32ToString(value)
+				search string = conversions.Stringify().Float32ToString(value)
 				i, ok         = original.(float32)
 			)
 
@@ -86,11 +86,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("float32")
 			}
 
-			return strings.Contains(converter.Stringify().Float32ToString(i), search)
+			return strings.Contains(conversions.Stringify().Float32ToString(i), search)
 		},
 		Float64: func(value float64) bool {
 			var (
-				search string = converter.Stringify().Float64ToString(value)
+				search string = conversions.Stringify().Float64ToString(value)
 				i, ok         = original.(float64)
 			)
 
@@ -98,11 +98,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("float64")
 			}
 
-			return strings.Contains(converter.Stringify().Float64ToString(i), search)
+			return strings.Contains(conversions.Stringify().Float64ToString(i), search)
 		},
 		Int: func(value int) bool {
 			var (
-				search string = converter.Stringify().IntToString(value)
+				search string = conversions.Stringify().IntToString(value)
 				i, ok         = original.(int)
 			)
 
@@ -110,11 +110,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("int")
 			}
 
-			return strings.Contains(converter.Stringify().IntToString(i), search)
+			return strings.Contains(conversions.Stringify().IntToString(i), search)
 		},
 		Int8: func(value int8) bool {
 			var (
-				search string = converter.Stringify().Int8ToString(value)
+				search string = conversions.Stringify().Int8ToString(value)
 				i, ok         = original.(int8)
 			)
 
@@ -122,11 +122,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("int8")
 			}
 
-			return strings.Contains(converter.Stringify().Int8ToString(i), search)
+			return strings.Contains(conversions.Stringify().Int8ToString(i), search)
 		},
 		Int16: func(value int16) bool {
 			var (
-				search string = converter.Stringify().Int16ToString(value)
+				search string = conversions.Stringify().Int16ToString(value)
 				i, ok         = original.(int16)
 			)
 
@@ -134,11 +134,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("int16")
 			}
 
-			return strings.Contains(converter.Stringify().Int16ToString(i), search)
+			return strings.Contains(conversions.Stringify().Int16ToString(i), search)
 		},
 		Int32: func(value int32) bool {
 			var (
-				search string = converter.Stringify().Int32ToString(value)
+				search string = conversions.Stringify().Int32ToString(value)
 				i, ok         = original.(int32)
 			)
 
@@ -146,11 +146,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("int32")
 			}
 
-			return strings.Contains(converter.Stringify().Int32ToString(i), search)
+			return strings.Contains(conversions.Stringify().Int32ToString(i), search)
 		},
 		Int64: func(value int64) bool {
 			var (
-				search string = converter.Stringify().Int64ToString(value)
+				search string = conversions.Stringify().Int64ToString(value)
 				i, ok         = original.(int64)
 			)
 
@@ -158,11 +158,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("int64")
 			}
 
-			return strings.Contains(converter.Stringify().Int64ToString(i), search)
+			return strings.Contains(conversions.Stringify().Int64ToString(i), search)
 		},
 		Rune: func(value rune) bool {
 			var (
-				search string = converter.Stringify().RuneToString(value)
+				search string = conversions.Stringify().RuneToString(value)
 				i, ok         = original.(rune)
 			)
 
@@ -170,7 +170,7 @@ func Contains(original interface{}) *IContains {
 				FatalLog("rune")
 			}
 
-			return strings.Contains(converter.Stringify().RuneToString(i), search)
+			return strings.Contains(conversions.Stringify().RuneToString(i), search)
 		},
 		String: func(value string) bool {
 			var (
@@ -186,7 +186,7 @@ func Contains(original interface{}) *IContains {
 		},
 		UInt: func(value uint) bool {
 			var (
-				search = converter.Stringify().UIntToString(value)
+				search = conversions.Stringify().UIntToString(value)
 				i, ok  = original.(uint)
 			)
 
@@ -194,11 +194,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("uint")
 			}
 
-			return strings.Contains(converter.Stringify().UIntToString(i), search)
+			return strings.Contains(conversions.Stringify().UIntToString(i), search)
 		},
 		UIntPtr: func(value uintptr) bool {
 			var (
-				search = converter.Stringify().UIntPtrToString(value)
+				search = conversions.Stringify().UIntPtrToString(value)
 				i, ok  = original.(uintptr)
 			)
 
@@ -206,11 +206,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("uintptr")
 			}
 
-			return strings.Contains(converter.Stringify().UIntPtrToString(i), search)
+			return strings.Contains(conversions.Stringify().UIntPtrToString(i), search)
 		},
 		UInt8: func(value uint8) bool {
 			var (
-				search = converter.Stringify().UInt8ToString(value)
+				search = conversions.Stringify().UInt8ToString(value)
 				i, ok  = original.(uint8)
 			)
 
@@ -218,11 +218,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("uint8")
 			}
 
-			return strings.Contains(converter.Stringify().UInt8ToString(i), search)
+			return strings.Contains(conversions.Stringify().UInt8ToString(i), search)
 		},
 		UInt16: func(value uint16) bool {
 			var (
-				search = converter.Stringify().UInt16ToString(value)
+				search = conversions.Stringify().UInt16ToString(value)
 				i, ok  = original.(uint16)
 			)
 
@@ -230,11 +230,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("uint16")
 			}
 
-			return strings.Contains(converter.Stringify().UInt16ToString(i), search)
+			return strings.Contains(conversions.Stringify().UInt16ToString(i), search)
 		},
 		UInt32: func(value uint32) bool {
 			var (
-				search = converter.Stringify().UInt32ToString(value)
+				search = conversions.Stringify().UInt32ToString(value)
 				i, ok  = original.(uint32)
 			)
 
@@ -242,11 +242,11 @@ func Contains(original interface{}) *IContains {
 				FatalLog("uint32")
 			}
 
-			return strings.Contains(converter.Stringify().UInt32ToString(i), search)
+			return strings.Contains(conversions.Stringify().UInt32ToString(i), search)
 		},
 		UInt64: func(value uint64) bool {
 			var (
-				search = converter.Stringify().UInt64ToString(value)
+				search = conversions.Stringify().UInt64ToString(value)
 				i, ok  = original.(uint64)
 			)
 
@@ -254,7 +254,7 @@ func Contains(original interface{}) *IContains {
 				FatalLog("uint64")
 			}
 
-			return strings.Contains(converter.Stringify().UInt64ToString(i), search)
+			return strings.Contains(conversions.Stringify().UInt64ToString(i), search)
 		},
 	}
 }

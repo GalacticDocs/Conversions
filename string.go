@@ -1,4 +1,4 @@
-package converter
+package conversions
 
 import (
 	"fmt"
@@ -105,6 +105,26 @@ func Stringify() *IStringify {
 			var val string = strconv.FormatUint(uint64(u), 10)
 
 			return val
+		},
+	}
+}
+
+type IStringBuilder struct {
+	Append func(string) *IStringBuilder
+	Build func() string
+}
+
+func StringBuilder(origin string) *IStringBuilder {
+	var str string = origin
+
+	return &IStringBuilder{
+		Append: func(s string) *IStringBuilder {
+			str = str + s
+
+			return StringBuilder(str)
+		},
+		Build: func() string {
+			return str
 		},
 	}
 }
