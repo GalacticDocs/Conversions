@@ -1,6 +1,8 @@
 package conversions
 
-import "time"
+import (
+	"time"
+)
 
 func ConvertTime(hour int, minute int, second int) string {
 	var (
@@ -120,27 +122,39 @@ func ConvertMonth(month int) string {
 type IDate struct {
 	Current string
 	// Format: day, month, year, hour, minute, second
-	Custom func(int, int, int, int, int, int)
+	Custom func(int, int, int, int, int, int) string
 }
 
 func Date() *IDate {
 	var (
-		builder  = StringBuilder("")
-		now      = time.Now().Local()
-		timeStr  = ConvertTime(now.Hour(), now.Minute(), now.Second())
-		dayStr   = ConvertDay(now.Day())
-		monthStr = ConvertMonth(int(now.Month()))
+		standard_builder = StringBuilder("")
+		custom_builder   = StringBuilder("")
+		now              = time.Now().Local()
+		timeStr          = ConvertTime(now.Hour(), now.Minute(), now.Second())
+		dayStr           = ConvertDay(now.Day())
+		monthStr         = ConvertMonth(int(now.Month()))
 	)
 
-	builder.Append(dayStr)
-	builder.Append(" ")
-	builder.Append(monthStr)
-	builder.Append(" ")
-	builder.Append(Stringify().IntToString(now.Year()))
-	builder.Append(" | ")
-	builder.Append(timeStr)
+	standard_builder.Append(dayStr)
+	standard_builder.Append(" of ")
+	standard_builder.Append(monthStr)
+	standard_builder.Append(" ")
+	standard_builder.Append(Stringify().IntToString(now.Year()))
+	standard_builder.Append(" | ")
+	standard_builder.Append(timeStr)
 
 	return &IDate{
-		Current: builder.Build(),
+		Current: standard_builder.Build(),
+		Custom: func(day int, month int, year int, hour int, minute int, second int) string {
+			custom_builder.Append(ConvertDay(day))
+			custom_builder.Append(" of ")
+			custom_builder.Append(ConvertMonth(month))
+			custom_builder.Append(" ")
+			custom_builder.Append(Stringify().IntToString(year))
+			custom_builder.Append(" | ")
+			custom_builder.Append(ConvertTime(hour, minute, second))
+
+			return custom_builder.Build()
+		},
 	}
 }
