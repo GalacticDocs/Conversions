@@ -3,7 +3,7 @@ package converter
 func StringToBool(str string) bool {
   if str == "true" {
     return true
-  } else {
+  } else if str == "false" {
     return false
   }
 }
